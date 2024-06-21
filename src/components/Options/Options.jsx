@@ -1,5 +1,5 @@
 import css from "./Options.module.css";
-export default function Option({ updateFeedback, totalFeadback }) {
+export default function Option({ updateFeedback, hasFeadback }) {
   return (
     <ul className={css.list}>
       <li>
@@ -32,8 +32,9 @@ export default function Option({ updateFeedback, totalFeadback }) {
           Bad
         </button>
       </li>
-      <li>
-        {totalFeadback && (
+
+      {hasFeadback && (
+        <li>
           <button
             onClick={() => {
               updateFeedback("reset");
@@ -42,8 +43,8 @@ export default function Option({ updateFeedback, totalFeadback }) {
           >
             Reset
           </button>
-        )}
-      </li>
+        </li>
+      )}
     </ul>
   );
 }

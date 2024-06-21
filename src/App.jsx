@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Description from "./components/Description/Description";
-import Feedback from "./components/Feadback/Feadback";
+import Feedback from "./components/Feedback/Feedback";
 import Option from "./components/Options/Options";
 import Notification from "./components/Notification/Notification";
 export default function App() {
@@ -39,9 +39,9 @@ export default function App() {
       case "reset":
         setRev({
           ...rev,
-          good: (rev.good = 0),
-          neutral: (rev.neutral = 0),
-          bad: (rev.bad = 0),
+          good: 0,
+          neutral: 0,
+          bad: 0,
         });
     }
   };
@@ -53,7 +53,7 @@ export default function App() {
   return (
     <>
       <Description />
-      <Option updateFeedback={updateFeedback} totalFeadback={isPress} />
+      <Option updateFeedback={updateFeedback} hasFeadback={isPress} />
       {isPress ? (
         <Feedback
           good={rev.good}
